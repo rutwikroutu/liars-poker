@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { listenToRoom, updateRoomStatus } from '../firebase';
+import { listenToRoom, updateRoomStatus, generateSerialNumber } from '../firebase';
 import { updateDoc, doc } from 'firebase/firestore';
 import db from '../firebase';
 import './GameRoom.css';
@@ -253,13 +253,19 @@ const GameRoom = ({ roomId, playerId, playerName, serialNumber, onBack }) => {
     if (!isHost) return;
     setIsSubmitting(true);
     try {
+      // Generate new serial numbers for all players
+      const newPlayers = room.players.map(player => ({
+        ...player,
+        serialNumber: generateSerialNumber(),
+      }));
       const roomRef = doc(db, 'rooms', roomId);
       await updateDoc(roomRef, {
         status: 'playing',
         currentBet: null,
         gameState: null,
         winner: null,
-        gameResult: null
+        gameResult: null,
+        players: newPlayers
       });
       setGameEnded(false);
       setWinner(null);

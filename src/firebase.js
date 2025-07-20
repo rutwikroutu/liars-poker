@@ -99,7 +99,7 @@ export const joinRoom = async (roomId, playerId, playerName) => {
 };
 
 // Generate random serial number (2 letters + 8 numbers)
-const generateSerialNumber = () => {
+export const generateSerialNumber = () => {
   const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const numbers = '0123456789';
   
