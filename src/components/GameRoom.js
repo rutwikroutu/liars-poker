@@ -22,6 +22,9 @@ const GameRoom = ({ roomId, playerId, playerName, serialNumber, onBack }) => {
         setRoom(roomData);
         if (roomData?.status === 'playing') {
           setGameStarted(true);
+          setGameEnded(false);
+          setWinner(null);
+          setCurrentBet(null);
         }
         if (roomData?.status === 'finished') {
           setGameEnded(true);
@@ -243,6 +246,30 @@ const GameRoom = ({ roomId, playerId, playerName, serialNumber, onBack }) => {
       alert('Failed to leave room. Please try again.');
     } finally {
       setIsLeaving(false);
+    }
+  };
+
+  const handlePlayAgain = async () => {
+    if (!isHost) return;
+    setIsSubmitting(true);
+    try {
+      const roomRef = doc(db, 'rooms', roomId);
+      await updateDoc(roomRef, {
+        status: 'playing',
+        currentBet: null,
+        gameState: null,
+        winner: null,
+        gameResult: null
+      });
+      setGameEnded(false);
+      setWinner(null);
+      setCurrentBet(null);
+      setGameStarted(true);
+    } catch (error) {
+      console.error('Error resetting game:', error);
+      alert('Failed to start a new round. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -512,6 +539,15 @@ const GameRoom = ({ roomId, playerId, playerName, serialNumber, onBack }) => {
                       ))}
                     </div>
                   </div>
+                )}
+                {isHost && (
+                  <button 
+                    className="play-again-btn"
+                    onClick={handlePlayAgain}
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Resetting...' : 'Play Again'}
+                  </button>
                 )}
                 <button 
                   className="leave-room-btn"
