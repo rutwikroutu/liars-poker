@@ -296,6 +296,10 @@ const GameRoom = ({ roomId, playerId, playerName, serialNumber, onBack }) => {
     );
   };
 
+  // Find the current player's serial number from the latest room data
+  const myPlayer = room?.players?.find(p => p.id === playerId);
+  const mySerialNumber = myPlayer?.serialNumber || '';
+
   if (!room) {
     return (
       <div className="game-room-screen">
@@ -358,7 +362,7 @@ const GameRoom = ({ roomId, playerId, playerName, serialNumber, onBack }) => {
                     <div className="seal-circle">★</div>
                   </div>
                   <div className="serial-label">SERIAL NUMBER</div>
-                  <div className="serial-number">{serialNumber}</div>
+                  <div className="serial-number">{mySerialNumber}</div>
                 </div>
               </div>
             </div>
