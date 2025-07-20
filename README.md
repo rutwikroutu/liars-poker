@@ -1,5 +1,7 @@
 # 🃏 Liar's Poker - Real-Time Multiplayer Game
 
+> **Inspired by Michael Lewis' legendary book _Liar's Poker_. Huge kudos to Michael Lewis for popularizing this iconic game of bluff and probability!**
+
 > A modern, web-based implementation of the classic bluffing game Liar's Poker, built with React and Firebase for real-time multiplayer gameplay.
 
 ![Liar's Poker Banner](https://i.ibb.co/wZgBKKfK/Screenshot-2025-07-20-at-12-03-00-PM.png)
@@ -233,24 +235,14 @@ This project is developed and maintained by **Rutwik Kumar Routu**. While this i
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 **Copyright © 2024 Rutwik Kumar Routu. All rights reserved.**
-
----
-
-## 🙏 **Acknowledgments**
-
-- **Rutwik Kumar Routu** - Original concept, design, and development
-- **React Team** - Amazing framework for building user interfaces
-- **Firebase Team** - Powerful real-time database platform
-- **Open Source Community** - For inspiration and tools
-
 ---
 
 ## 📞 **Contact**
 
 **Developer:** Rutwik Kumar Routu  
-**Email:** [Your Email]  
+**Email:** [rutwik.routu@duke.edu]  
 **GitHub:** [@rutwikofficial](https://github.com/rutwikofficial)  
-**LinkedIn:** [Your LinkedIn]  
+**LinkedIn:** [https://www.linkedin.com/in/rutwikroutu/]  
 
 ---
 
@@ -258,7 +250,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 🎉 **Ready to start bluffing? Create a room and invite your friends!**
 
-[![Play Now](https://liars-poker-e2172.web.app)
+[👉 **Play Now on liars-poker-e2172.web.app**](https://liars-poker-e2172.web.app)
 
 *Built with ❤️ by Rutwik Routu*
 
